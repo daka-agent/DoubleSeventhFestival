@@ -167,7 +167,6 @@
     ];
 
     var img = new Image();
-    img.onload = Promise.resolve();
     var imgReady = new Promise(function (resolve) {
       img.onload = function () { resolve(); };
       img.onerror = function () { resolve(); };
@@ -250,24 +249,60 @@
   }
 
   function openPoster() {
+    // 微信内置浏览器：download 属性无效，改用「长按图片保存」
+    var isWeChat = /MicroMessenger/i.test(navigator.userAgent || '');
+
     drawPoster(function (canvas) {
       try {
         var url = canvas.toDataURL('image/png');
         els.posterImg.src = url;
-        els.posterSave.onclick = function () {
-          var a = document.createElement('a');
-          a.href = url;
-          a.download = '你的想念是什么型-' + DATA.types[state.result].name + '.png';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-        };
+
+        if (isWeChat) {
+          // 微信内：展示图 + 长按保存引导
+          els.posterSave.textContent = '长按上方海报保存';
+          els.posterSave.onclick = function () {
+            // 再点一次也只是提醒，不尝试 download
+            if (!els.modal.hidden) {
+              var tipEl = els.modal.querySelector('.poster-wechat-tip');
+              if (tipEl) {
+                tipEl.style.opacity = '1';
+              }
+            }
+          };
+          // 插入/显示微信提示行（放在海报图和按钮之间）
+          var tipEl = els.modal.querySelector('.poster-wechat-tip');
+          if (!tipEl) {
+            tipEl = document.createElement('p');
+            tipEl.className = 'poster-wechat-tip';
+            tipEl.textContent = '长按海报图片 → 保存到相册';
+            var actions = els.modal.querySelector('.poster-modal-actions');
+            els.modal.insertBefore(tipEl, actions);
+          }
+          tipEl.style.display = '';
+        } else {
+          // 外部浏览器：正常 download
+          els.posterSave.textContent = '保存海报';
+          var tipHide = els.modal.querySelector('.poster-wechat-tip');
+          if (tipHide) tipHide.style.display = 'none';
+          els.posterSave.onclick = function () {
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = '你的想念是什么型-' + DATA.types[state.result].name + '.png';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+          };
+        }
+
+        // 锁定背景滚动（微信内弹层滚动穿透）
+        document.body.classList.add('modal-open');
         els.modal.hidden = false;
       } catch (e) {
         // toDataURL 失败（极旧浏览器）：直接展示 canvas
         canvas.style.maxWidth = '100%';
         els.modal.innerHTML = '';
         els.modal.appendChild(canvas);
+        document.body.classList.add('modal-open');
         els.modal.hidden = false;
       }
     });
@@ -301,12 +336,18 @@
     if (els.posterBtn) els.posterBtn.addEventListener('click', openPoster);
 
     if (els.posterClose) {
-      els.posterClose.addEventListener('click', function () { els.modal.hidden = true; });
+      els.posterClose.addEventListener('click', function () {
+        els.modal.hidden = true;
+        document.body.classList.remove('modal-open');
+      });
     }
     if (els.modal) {
       // 点遮罩关闭
       els.modal.addEventListener('click', function (ev) {
-        if (ev.target === els.modal) els.modal.hidden = true;
+        if (ev.target === els.modal) {
+          els.modal.hidden = true;
+          document.body.classList.remove('modal-open');
+        }
       });
     }
   }

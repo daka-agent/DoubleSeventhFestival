@@ -107,13 +107,16 @@
     var title = '银河很美';
     var text = '在七月初七的夜里，借一片星河，把传说还回星空本身。';
 
+    // 微信内置浏览器检测（iOS WKWebView / 安卓 X5-XWeb）
+    var isWeChat = /MicroMessenger/i.test(navigator.userAgent || '');
+
     function showTip(msg) {
       if (!tip) return;
       tip.textContent = msg;
       tip.style.opacity = '1';
       setTimeout(function () {
         tip.style.opacity = '0';
-      }, 2200);
+      }, 2600);
     }
 
     function fallbackCopy() {
@@ -131,6 +134,14 @@
     }
 
     btn.addEventListener('click', function () {
+      // 微信内：Web Share / Clipboard 都不可靠，直接引导用右上角菜单
+      if (isWeChat) {
+        fallbackCopy();
+        setTimeout(function () {
+          showTip('或点右上角「···」→ 发送给朋友 / 朋友圈');
+        }, 2800);
+        return;
+      }
       if (navigator.share) {
         navigator.share({ title: title, text: text, url: url })
           .catch(function () {

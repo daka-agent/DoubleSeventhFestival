@@ -303,9 +303,33 @@
 
 .poster-modal img {
   max-height: 72vh;
+  max-height: 68svh;   /* 微信/移动端：地址栏收起时的稳定视口 */
   max-width: 100%;
   border-radius: 12px;
   box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
+  /* 微信内长按保存的关键：关闭浏览器默认的图片拖拽/手势干扰 */
+  -webkit-touch-callout: default;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 弹层打开时锁定背景滚动（微信内尤其重要） */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* 微信内的保存提示 */
+.poster-wechat-tip {
+  margin-top: -6px;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  color: var(--gold-soft);
+  animation: poster-tip-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes poster-tip-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
 }
 
 .poster-modal-actions {
