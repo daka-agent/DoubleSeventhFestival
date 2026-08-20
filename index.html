@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0B1A35" />
+  <meta name="description" content="今晚的银河很美 —— 一封写给七夕的电子情书" />
+  <meta property="og:title" content="今晚的银河很美" />
+  <meta property="og:description" content="在七月初七的夜里，借一片星河，把传说还回星空本身。" />
+  <meta property="og:image" content="assets/milky-way.jpg" />
+  <title>今晚的银河很美 · 七夕</title>
+  <link rel="stylesheet" href="assets/fonts/wenkai-local.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/quiz.css" />
+</head>
+<body>
+  <!-- =========================================================
+       幕 1 · 开篇「今晚的银河」
+       全屏银河 + 一行 slogan + 流星划过
+       ========================================================= -->
+  <section class="scene scene-opening" id="scene-opening">
+    <div class="bg-galaxy" aria-hidden="true">
+      <img src="assets/milky-way.jpg" alt="" class="bg-galaxy-img" />
+      <div class="bg-galaxy-tint"></div>
+    </div>
+    <div class="meteors" aria-hidden="true">
+      <!-- 流星由 JS 动态注入 -->
+    </div>
+    <div class="opening-content">
+      <p class="opening-line opening-line--whisper">在七月初七的夜里</p>
+      <h1 class="opening-line opening-line--title">今晚的银河很美</h1>
+      <p class="opening-line opening-line--date">七月初七 · 七夕</p>
+    </div>
+    <a href="#scene-story" class="opening-scroll" aria-label="往下看">
+      <span class="opening-scroll-hint">往下看</span>
+      <span class="opening-scroll-arrow"></span>
+    </a>
+  </section>
+
+  <!-- =========================================================
+       幕 2 · 故事「牛郎织女，但不是你想的那样」
+       古文与现代翻译，左右对照
+       ========================================================= -->
+  <section class="scene scene-story" id="scene-story">
+    <header class="story-header">
+      <p class="story-eyebrow">《古诗十九首》</p>
+      <h2 class="story-title">迢迢牵牛星</h2>
+    </header>
+
+    <div class="story-pair">
+      <article class="story-card story-card--ancient">
+        <p class="story-card-label">古</p>
+        <p class="story-verse">迢迢牵牛星，皎皎河汉女。</p>
+        <p class="story-verse">纤纤擢素手，札札弄机杼。</p>
+        <p class="story-verse">终日不成章，泣涕零如雨。</p>
+        <p class="story-verse">河汉清且浅，相去复几许。</p>
+        <p class="story-verse">盈盈一水间，脉脉不得语。</p>
+      </article>
+
+      <article class="story-card story-card--modern">
+        <p class="story-card-label">今</p>
+        <p class="story-modern-line">隔着那条清浅的银河，</p>
+        <p class="story-modern-line">他们谁也看不清谁。</p>
+        <p class="story-modern-line">一年只见一次，</p>
+        <p class="story-modern-line">见了，也只是站着，看一眼。</p>
+        <p class="story-modern-line story-modern-line--echo">—— 不是不想说，是隔着水，说不出来。</p>
+      </article>
+    </div>
+
+    <div class="story-pair">
+      <article class="story-card story-card--ancient">
+        <p class="story-card-label">古</p>
+        <p class="story-verse">两情若是久长时，</p>
+        <p class="story-verse">又岂在朝朝暮暮。</p>
+      </article>
+
+      <article class="story-card story-card--modern">
+        <p class="story-card-label">今</p>
+        <p class="story-modern-line">真正的舍不得，</p>
+        <p class="story-modern-line">从来不是天天黏着。</p>
+        <p class="story-modern-line">是我知道你忙，</p>
+        <p class="story-modern-line">我在你看不见的地方，</p>
+        <p class="story-modern-line story-modern-line--echo">—— 把想念攒到见面的那一天。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       幕 2.5 · 测试「你的想念，是什么型」
+       入口卡 → 6 道题 → 结果卡 → 朋友圈海报
+       ========================================================= -->
+  <section class="scene scene-quiz" id="scene-quiz">
+
+    <!-- 入口卡 -->
+    <div class="quiz-entry" id="quiz-entry">
+      <p class="quiz-entry-eyebrow">一个小测试</p>
+      <h2 class="quiz-entry-title">你的想念，<br />是什么型</h2>
+      <p class="quiz-entry-desc">故事看完了。轮到你——
+关于「想念」这件事，你是哪一种？</p>
+      <p class="quiz-entry-meta">六道小题 · 大约一分钟</p>
+      <button class="quiz-start-btn" id="quiz-start-btn" type="button">开始</button>
+    </div>
+
+    <!-- 答题 -->
+    <div class="quiz-question" id="quiz-question" hidden>
+      <div class="quiz-progress">
+        <span class="quiz-progress-num" id="quiz-progress">1 / 6</span>
+        <div class="quiz-dots" id="quiz-dots"></div>
+      </div>
+      <h3 class="quiz-q-text" id="quiz-q-text"></h3>
+      <div class="quiz-options" id="quiz-q-options"></div>
+    </div>
+
+    <!-- 结果 -->
+    <div class="quiz-result" id="quiz-result" hidden>
+      <div class="quiz-r-badge" id="quiz-r-badge"></div>
+      <h3 class="quiz-r-name" id="quiz-r-name"></h3>
+      <p class="quiz-r-tag" id="quiz-r-tag"></p>
+      <p class="quiz-r-desc" id="quiz-r-desc"></p>
+      <p class="quiz-r-verse" id="quiz-r-verse"></p>
+      <p class="quiz-r-verse-from" id="quiz-r-verse-from"></p>
+      <p class="quiz-r-modern" id="quiz-r-modern"></p>
+      <div class="quiz-r-actions">
+        <button class="quiz-poster-btn" id="quiz-poster-btn" type="button">生成我的海报</button>
+        <button class="quiz-retry-btn" id="quiz-retry-btn" type="button">再测一次</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       幕 3 · 结语
+       ========================================================= -->
+  <section class="scene scene-closing" id="scene-closing">
+    <div class="closing-content">
+      <p class="closing-line">想起谁的时候，就抬头。</p>
+      <p class="closing-sub">—— 七月初七，给每一个想见的人</p>
+    </div>
+    <footer class="closing-footer">
+      <button class="closing-share" id="share-btn" type="button">
+        <span>分享这段星河</span>
+      </button>
+      <p class="closing-tip" id="share-tip" aria-live="polite"></p>
+      <p class="closing-credit">Design by Daka</p>
+    </footer>
+  </section>
+
+  <!-- 海报弹层 -->
+  <div class="poster-modal" id="poster-modal" hidden>
+    <img id="poster-img" alt="你的想念是什么型 · 测试结果海报" />
+    <div class="poster-modal-actions">
+      <button id="poster-save" type="button">保存海报</button>
+      <button id="poster-close" type="button">关闭</button>
+    </div>
+  </div>
+
+  <script src="js/quiz-data.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

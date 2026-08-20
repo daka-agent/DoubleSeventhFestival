@@ -1,0 +1,479 @@
+/* =========================================================
+   「今晚的银河很美」P1 极简 Demo
+   ---------------------------------------------------------
+   色彩系统：
+     --ink  深空蓝（主背景/夜空）
+     --gold 星辉金（点缀/标题）
+     --moon 月白（正文/卡面）
+     --ash  烟灰（卡片底）
+   --------------------------------------------------------- */
+
+:root {
+  --ink: #0B1A35;
+  --ink-deep: #050B1B;
+  --gold: #E8C36A;
+  --gold-soft: #C9A55A;
+  --moon: #F5F2EA;
+  --moon-dim: #C9C7BD;
+  --ash: rgba(15, 26, 53, 0.62);
+  --serif: "LXGW WenKai", "Kaiti SC", "KaiTi", "STKaiti", "Songti SC", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --maxw: 680px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  background: var(--ink-deep);
+  color: var(--moon);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+body {
+  /* 全局滚动顺滑 */
+  scroll-behavior: smooth;
+}
+
+img { display: block; max-width: 100%; }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* =========================================================
+   幕 1 · 开篇
+   ========================================================= */
+
+.scene-opening {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.bg-galaxy {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.bg-galaxy-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  /* 缓慢呼吸式缩放，模拟银河"还活着" */
+  animation: galaxy-breathe 22s ease-in-out infinite;
+  transform-origin: 60% 50%;
+  filter: brightness(0.92) contrast(1.05) saturate(1.08);
+}
+
+@keyframes galaxy-breathe {
+  0%, 100% { transform: scale(1.0); }
+  50%      { transform: scale(1.06); }
+}
+
+.bg-galaxy-tint {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 38%, transparent 0%, rgba(5, 11, 27, 0.10) 35%, rgba(5, 11, 27, 0.55) 85%, rgba(5, 11, 27, 0.85) 100%),
+    linear-gradient(180deg, rgba(5,11,27,0.30) 0%, rgba(5,11,27,0.10) 40%, rgba(5,11,27,0.75) 100%);
+}
+
+/* 流星容器 */
+.meteors {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.meteor {
+  position: absolute;
+  top: -10%;
+  width: 2px;
+  height: 2px;
+  background: var(--moon);
+  border-radius: 50%;
+  box-shadow: 0 0 6px 1px rgba(245, 242, 234, 0.8);
+  opacity: 0;
+  animation: meteor-fall linear forwards;
+}
+
+.meteor::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(245,242,234,0.0), rgba(245,242,234,0.95) 40%, rgba(245,242,234,0.0));
+  transform-origin: 0 50%;
+  transform: rotate(0deg) translateX(0);
+}
+
+@keyframes meteor-fall {
+  0%   { opacity: 0; transform: translate3d(0, 0, 0); }
+  6%   { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { opacity: 0; transform: translate3d(-50vw, 90vh, 0); }
+}
+
+/* 开篇中心文 */
+.opening-content {
+  text-align: center;
+  padding: 0 24px;
+  max-width: var(--maxw);
+}
+
+.opening-line {
+  color: var(--moon);
+  margin: 0;
+}
+
+.opening-line--whisper {
+  font-family: var(--serif);
+  font-size: 14px;
+  letter-spacing: 0.28em;
+  color: var(--moon-dim);
+  opacity: 0.85;
+  margin-bottom: 22px;
+  font-weight: 300;
+}
+
+.opening-line--title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(36px, 8vw, 56px);
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  margin-bottom: 18px;
+  color: var(--moon);
+  /* 微光辉 */
+  text-shadow:
+    0 0 30px rgba(232, 195, 106, 0.18),
+    0 0 60px rgba(232, 195, 106, 0.08);
+  /* 入场动画 */
+  opacity: 0;
+  transform: translateY(16px);
+  animation: rise-fade 1.6s ease-out 0.4s forwards;
+}
+
+.opening-line--date {
+  font-family: var(--serif);
+  font-size: 12px;
+  letter-spacing: 0.42em;
+  color: var(--gold);
+  opacity: 0;
+  animation: rise-fade 1.6s ease-out 1.0s forwards;
+}
+
+.opening-line--whisper {
+  opacity: 0;
+  animation: rise-fade 1.6s ease-out 0.1s forwards;
+}
+
+@keyframes rise-fade {
+  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(16px); }
+}
+
+/* 向下引导 */
+.opening-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--moon-dim);
+  text-decoration: none;
+  opacity: 0;
+  animation: rise-fade 1.4s ease-out 1.6s forwards;
+}
+
+.opening-scroll-hint {
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--gold-soft);
+}
+
+.opening-scroll-arrow {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(180deg, rgba(232,195,106,0.0), rgba(232,195,106,0.7) 50%, rgba(232,195,106,0.0));
+  position: relative;
+  animation: arrow-bob 2.4s ease-in-out infinite;
+}
+
+@keyframes arrow-bob {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50%      { transform: translateY(8px); opacity: 1; }
+}
+
+/* =========================================================
+   幕 2 · 古今对照
+   ========================================================= */
+
+.scene-story {
+  background:
+    linear-gradient(180deg, var(--ink-deep) 0%, var(--ink) 25%, var(--ink) 75%, var(--ink-deep) 100%);
+  padding: 96px 24px 80px;
+  min-height: 100vh;
+}
+
+.story-header {
+  text-align: center;
+  margin-bottom: 56px;
+  max-width: var(--maxw);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.story-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.5em;
+  color: var(--gold-soft);
+  margin-bottom: 14px;
+}
+
+.story-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 6vw, 38px);
+  letter-spacing: 0.18em;
+  color: var(--moon);
+  text-shadow: 0 0 30px rgba(232,195,106,0.10);
+}
+
+.story-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  max-width: var(--maxw);
+  margin: 0 auto 56px;
+}
+
+@media (max-width: 540px) {
+  .story-pair {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+}
+
+.story-card {
+  position: relative;
+  padding: 28px 22px 24px;
+  border-radius: 4px;
+  background: var(--ash);
+  border: 1px solid rgba(232, 195, 106, 0.12);
+  backdrop-filter: blur(2px);
+}
+
+.story-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+.story-card-label {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--gold-soft);
+  letter-spacing: 0.2em;
+  opacity: 0.7;
+}
+
+.story-verse {
+  font-family: var(--serif);
+  font-size: clamp(15.5px, 3.8vw, 17.5px);
+  letter-spacing: 0.08em;
+  line-height: 2.0;
+  color: var(--moon);
+}
+
+.story-card--modern {
+  background: rgba(232, 195, 106, 0.06);
+}
+
+.story-card--modern::before {
+  background: rgba(245, 242, 234, 0.5);
+}
+
+.story-modern-line {
+  font-size: clamp(15px, 3.8vw, 16.5px);
+  line-height: 1.95;
+  color: var(--moon);
+  letter-spacing: 0.02em;
+}
+
+.story-modern-line--echo {
+  margin-top: 10px;
+  color: var(--gold);
+  font-size: clamp(13px, 3.4vw, 14px);
+  letter-spacing: 0.06em;
+  opacity: 0.88;
+}
+
+/* =========================================================
+   幕 3 · 结语
+   ========================================================= */
+
+.scene-closing {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  background:
+    radial-gradient(ellipse at 50% 70%, rgba(11,26,53,0.85) 0%, rgba(5,11,27,0.98) 70%),
+    var(--ink-deep);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* 结语复用星图做底，淡化 */
+.scene-closing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/milky-way.jpg");
+  background-size: cover;
+  background-position: center 60%;
+  opacity: 0.18;
+  filter: blur(2px) brightness(0.8);
+  z-index: -1;
+}
+
+.closing-content {
+  text-align: center;
+  max-width: var(--maxw);
+  margin-bottom: 56px;
+}
+
+.closing-line {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(32px, 7vw, 46px);
+  letter-spacing: 0.14em;
+  color: var(--moon);
+  text-shadow: 0 0 30px rgba(232,195,106,0.15);
+}
+
+.closing-sub {
+  font-family: var(--serif);
+  margin-top: 24px;
+  font-size: 13px;
+  letter-spacing: 0.32em;
+  color: var(--gold-soft);
+  font-weight: 300;
+}
+
+.closing-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.closing-share {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 20px;
+  border: 1px solid var(--gold-soft);
+  border-radius: 999px;
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 0.24em;
+  background: transparent;
+  transition: all 0.4s ease;
+}
+
+.closing-share:hover, .closing-share:focus-visible {
+  background: var(--gold);
+  color: var(--ink-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(232, 195, 106, 0.18);
+  outline: none;
+}
+
+.closing-share:active {
+  transform: translateY(0);
+}
+
+.closing-tip {
+  font-size: 12px;
+  color: var(--moon-dim);
+  min-height: 1em;
+  letter-spacing: 0.12em;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.closing-credit {
+  position: absolute;
+  bottom: 26px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--moon-dim);
+  opacity: 0.5;
+}
+
+/* =========================================================
+   小屏适配
+   ========================================================= */
+
+@media (max-width: 540px) {
+  .scene-story { padding: 64px 20px 56px; }
+  .story-header { margin-bottom: 36px; }
+  .story-card { padding: 22px 18px 20px; }
+  .opening-line--title { letter-spacing: 0.06em; }
+  .opening-line--whisper { font-size: 12px; letter-spacing: 0.28em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-galaxy-img, .opening-scroll-arrow { animation: none !important; }
+  .meteor { display: none; }
+}
+
+/* iOS 安全区 */
+@supports (padding: max(0px)) {
+  .opening-scroll { bottom: max(36px, env(safe-area-inset-bottom)); }
+  .closing-footer { margin-bottom: max(40px, env(safe-area-inset-bottom)); }
+}
