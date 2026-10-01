@@ -242,7 +242,7 @@
       ctx.fillText('想起谁的时候，就抬头。', centerX, H - 150);
       ctx.fillStyle = 'rgba(201, 199, 189, 0.6)';
       ctx.font = '400 26px ' + SANS;
-      ctx.fillText('Design by Daka', centerX, H - 76);
+      ctx.fillText('Designed by Daka', centerX, H - 76);
 
       callback(canvas);
     });

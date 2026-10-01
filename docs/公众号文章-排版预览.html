@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>银河很美 · 公众号复盘文章（排版预览）</title>
+<style>
+:root { --ink:#0B1A35; --gold:#8A6D2F; --moon-dim:#6B7280; --line:rgba(11,26,53,.10); }
+* { box-sizing: border-box; }
+body { margin:0; padding:0 12px 80px; background:#EDEDED;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif; }
+#copybar { position:fixed; top:0; left:0; right:0; z-index:9; background:#0B1A35; color:#F5F2EA;
+  padding:10px 16px; font-size:13px; display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap; }
+#copybar button { background:#E8C36A; color:#0B1A35; border:none; border-radius:6px; padding:6px 16px;
+  font-size:13px; font-weight:600; cursor:pointer; }
+#copybar span { opacity:.85; }
+.wrap { max-width:677px; margin:56px auto 0; background:#fff; padding:32px 24px 40px; border-radius:4px;
+  box-shadow:0 2px 18px rgba(11,26,53,.08); }
+.wrap h1 { font-size:24px; line-height:1.45; letter-spacing:.02em; color:var(--ink); margin:0 0 26px;
+  font-weight:700; padding-bottom:18px; border-bottom:1px solid var(--line); }
+.wrap h2 { font-size:19px; line-height:1.5; color:var(--ink); margin:44px 0 18px; font-weight:700;
+  padding-left:12px; border-left:4px solid #C9A55A; }
+.wrap h3 { font-size:16.5px; line-height:1.55; color:#1F2C44; margin:30px 0 14px; font-weight:600; }
+.wrap p { font-size:16px; line-height:1.85; color:#33383F; margin:0 0 18px; letter-spacing:.01em; }
+.wrap strong { color:var(--ink); font-weight:600; }
+.wrap em { color:var(--moon-dim); }
+.wrap blockquote { margin:22px 0; padding:14px 18px; background:#FAF8F3; border-left:3px solid #E8C36A;
+  color:#5A5346; }
+.wrap blockquote p { margin:0 0 8px; font-size:15.5px; line-height:1.8; color:#5A5346; }
+.wrap blockquote p:last-child { margin-bottom:0; }
+.wrap blockquote strong { color:#8A6D2F; }
+.wrap ol, .wrap ul { margin:0 0 20px; padding-left:1.4em; }
+.wrap li { font-size:16px; line-height:1.85; color:#33383F; margin-bottom:8px; }
+.wrap hr { border:none; border-top:1px solid var(--line); margin:38px 0; }
+.wrap a { color:#8A6D2F; text-decoration:none; border-bottom:1px solid rgba(201,165,90,.5); word-break:break-all; }
+.wrap table { width:100%; border-collapse:collapse; margin:0 0 26px; font-size:15px; }
+.wrap th, .wrap td { border:1px solid var(--line); padding:10px 12px; text-align:left; line-height:1.7; color:#33383F; }
+.wrap th { background:#FAF8F3; font-weight:600; color:var(--ink); }
+.wrap code { background:#F2F4F7; color:#2B3A55; padding:2px 5px; border-radius:3px;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:14px; }
+.wrap pre { background:#F7F8FA; border:1px solid var(--line); border-radius:6px; overflow-x:auto;
+  padding:16px 18px; margin:0 0 22px; }
+.wrap pre code { background:none; padding:0; color:#2B3A55; font-size:13px; line-height:1.7; white-space:pre; }
+@media (max-width:600px){
+  .wrap { padding:24px 16px 32px; }
+  .wrap h1 { font-size:21px; }
+  .wrap h2 { font-size:18px; }
+}
+@media print { #copybar { display:none; } body { background:#fff; } .wrap { box-shadow:none; margin:0 auto; } }
+</style>
+</head>
+<body>
+<div id="copybar">
+  <span>此页面为排版预览 —— 点右侧按钮选中正文，然后到公众号编辑器里 Ctrl+V（格式会带过去）</span>
+  <button id="copybtn" type="button">一键选中并复制正文</button>
+</div>
+<div class="wrap" id="article">
+<h1>七夕那晚我拍了一张很糊的银河，然后和学生有了一片星空</h1>
+<blockquote>
+<p>一个大学老师，用一夜时间，把传统节日做进了学生的手机里。<br />
+全文 4000 字，含关键代码和 8 个真实踩坑。不懂代码也能读完。</p>
+</blockquote>
+<hr />
+<h2>一、那张不太好的照片</h2>
+<p>七夕那晚，我拿手机对着天空按了一张。</p>
+<p>说实话，拍得很一般。噪点多，星星是糊的，银河像被人用手指抹过一道。专业摄影的朋友大概会笑。</p>
+<p>但没过两天，这张照片成了一个网页的第一帧——<strong>竖起手机，全屏，星星缓慢呼吸，流星每隔两三秒划过一道。</strong></p>
+<p>我不是一个程序员。我是个大学老师，平时讲课，也带一个班。但那天夜里我忽然放不下一件事：</p>
+<p><strong>为什么我们中国人自己的节日，在我们自己的年轻人这里，悄悄退场了？</strong></p>
+<p>那天是七月初七。朋友圈里什么都没有。<br />
+没有人在晒银河，没有人在说牛郎织女，没有人问"今晚抬头能看到什么"。</p>
+<p>可是两个月前，同样的朋友圈，铺天盖地是圣诞氛围感。一个月前，是情人节的玫瑰和套餐。</p>
+<p>我们的节日不缺美。它缺的是——<strong>一个让人愿意停下来看一眼的理由。</strong></p>
+<hr />
+<h2>二、动手之前，我先列了一张"不要做什么"的清单</h2>
+<p>这是我做这个项目最重要的十分钟。</p>
+<p>想宣传传统节日，最容易犯的错就是"太用力"。所以我先写下了三条禁令：</p>
+<p><strong>第一条：不要喊口号。</strong><br />
+"传承中华优秀传统文化"——这句话本身没错，但它一旦出现在年轻人眼前，手指就自动划走了。不是他们不认同，是他们不想被说教。</p>
+<p><strong>第二条：不要大红大金。</strong><br />
+大红灯笼、金色祥云、毛笔字加渐变。这些元素本身很美，但在年轻人心里，它们已经形成了条件反射：<strong>"这是官方宣传物料，和我无关。"</strong></p>
+<p><strong>第三条：不要教训人。</strong><br />
+"你们怎么不过传统节日了？"——没人喜欢被一个网页质问。</p>
+<p>那要做什么？</p>
+<p>我把答案写在了一张纸上：</p>
+<blockquote>
+<p><strong>七夕最浪漫的不是礼物，是抬头。</strong></p>
+</blockquote>
+<p>不宣讲传说，而是<strong>让你自己看见那片星空</strong>；<br />
+不批评洋节，而是<strong>把中国的浪漫，还原成它本来的样子</strong>；<br />
+不要求你记住什么，只希望你看完，今晚出门的时候，会抬一下头。</p>
+<p>这就是整个项目的出发点。</p>
+<hr />
+<h2>三、它最后长成了这样</h2>
+<p>你可以先打开看看（建议手机打开，最后有个小测试）：</p>
+<p>👉 <strong>https://daka-agent.github.io/DoubleSeventhFestival/</strong></p>
+<p>整个体验是一趟五站的路程，大约三分钟：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>第一幕</strong></td>
+<td>全屏银河（那张糊照片）+ 一行字："银河很美" + 流星划过</td>
+</tr>
+<tr>
+<td><strong>第二幕</strong></td>
+<td>古今对照，把古诗翻译成今天的朋友圈语言</td>
+</tr>
+<tr>
+<td><strong>第三幕</strong></td>
+<td>一个小测试："你的想念，是什么型"</td>
+</tr>
+<tr>
+<td><strong>第四幕</strong></td>
+<td>生成一张属于你的朋友圈海报</td>
+</tr>
+<tr>
+<td><strong>第五幕</strong></td>
+<td>结语：<strong>"想起谁的时候，就抬头。"</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>四、四个我特别喜欢的设计</h2>
+<h3>1. 开篇用的就是那张糊照片</h3>
+<p>很多人建议我换一张高清银河。我拒绝了。</p>
+<p><strong>因为一张用手机随手拍的星空，是有体温的。</strong></p>
+<p>高清天文摄影很美，但它是"别人的图库"；一张带着噪点、边缘发虚的照片告诉看的人：</p>
+<blockquote>
+<p>拍它的人，真的在那个夜里，仰着头站了很久。</p>
+</blockquote>
+<p>这个小小的"真"，比任何视觉冲击力都重要。年轻人对完美的商业图天然免疫，但对"一个普通老师仰望星空"这件事，是买账的。</p>
+<p>配色调的是 <strong>深空蓝 #0B1A35 + 星辉金 #E8C36A + 月白 #F5F2EA</strong>——不是没有中国味，而是把中国味藏在里子里：克制、留白、含蓄。</p>
+<h3>2. 古今对照：不做翻译，做"回声"</h3>
+<p>第二幕左边是《古诗十九首》，右边是现代白话。但我刻意<strong>没有做逐句翻译</strong>：</p>
+<blockquote>
+<p>迢迢牵牛星，皎皎河汉女。<br />
+……<br />
+盈盈一水间，脉脉不得语。</p>
+</blockquote>
+<p>右边是这样写的：</p>
+<blockquote>
+<p>隔着那条清浅的银河，<br />
+他们谁也看不清谁。<br />
+一年只见一次，<br />
+见了，也只是站着，看一眼。<br />
+<strong>—— 不是不想说，是隔着水，说不出来。</strong></p>
+</blockquote>
+<p>最后那句破折号引出的，不是翻译，是<strong>回声</strong>。</p>
+<p>翻译是知识，回声才是共情。一个学生读完"盈盈一水间，脉脉不得语"可能没感觉，但他一定懂"聊天框里打了又删的那句话"。</p>
+<h3>3. 最重要的一次判断：把"爱情"换成了"想念"</h3>
+<p>这是整个项目最关键的一次取舍。</p>
+<p>我做的时候，七夕已经过去两天了。如果还挂着"七夕快乐"的招牌，打开的人第一反应是——<strong>"都过完了才发？"</strong></p>
+<p>所以我问了自己一个问题：<strong>牛郎织女的传说，核心真的是爱情吗？</strong></p>
+<p>想了很久，我觉得不是。</p>
+<p><strong>是想念。</strong> 而且是那种"说不出口、见不到面、还得照常过日子"的想念。</p>
+<p>爱情有节日，想念没有。<strong>想念是全年无休的。</strong></p>
+<p>于是测试的主题从"七夕测试"改成了：</p>
+<blockquote>
+<p><strong>你的想念，是什么型</strong></p>
+</blockquote>
+<p>今天测、中秋测、明年七夕测、十年后翻出来测，都成立。</p>
+<p>四种人格全部取自传说本身的意象：</p>
+<ul>
+<li><strong>织女型</strong>·把想念织进日常 —— 盈盈一水间，脉脉不得语</li>
+<li><strong>牛郎型</strong>·想念就要去见 —— 河汉清且浅，相去复几许</li>
+<li><strong>鹊鸟型</strong>·为别人搭桥 —— 金风玉露一相逢</li>
+<li><strong>银河型</strong>·独自也很辽阔 —— 银汉迢迢暗度</li>
+</ul>
+<p>题目也都是年轻人真正的日常：深夜刷到一首老歌突然想起一个人；消息发出去三天没回；逛到一个特别适合 TA 的东西……</p>
+<p><strong>不问隐私，只问"想念的姿势"。</strong></p>
+<h3>4. 海报是结果，不是广告</h3>
+<p>很多 H5 的套路是：做完测试，弹一个"关注公众号领奖品"。</p>
+<p>我没有。测试结束只给一张海报——<strong>用你自己那张银河做底</strong>，写着你的类型、你的诗句、和你自己的答案。</p>
+<p>因为最好的传播，从来不是抽奖，是<strong>"我想让别人知道，我是这样的人"</strong>。</p>
+<hr />
+<h2>五、写给不懂代码的人看的技术部分</h2>
+<p>下面这几段，我尽量用大白话讲。你可以跳过，但看了也许会觉得：原来写代码和写文章，其实是同一件事。</p>
+<h3>① 那些流星，其实是"随机数"</h3>
+<p>第一幕的流星不是视频，<strong>没有一个字节的视频文件</strong>。</p>
+<p>做法是：每隔一两秒，用 JavaScript 造一个小光点，给它随机安排四件事——从哪儿冒出来、斜着多少度飞、飞多久、尾巴拖多长。然后播一段已经写好的动画，动画结束就把它删掉。</p>
+<pre><code class="language-javascript">function spawnMeteor() {
+  var meteor = document.createElement('span');
+  meteor.className = 'meteor';
+
+  var startLeft = 20 + Math.random() * 65;   // 从屏幕 20%~85% 的位置冒出
+  var angle     = 18 + Math.random() * 14;   // 倾斜 18~32 度
+  var duration  = 1.2 + Math.random() * 1.0; // 飞 1.2~2.2 秒
+  var tailLen   = 60 + Math.random() * 60;   // 尾巴 60~120 像素
+
+  meteor.style.left = startLeft + '%';
+  meteor.style.transform = 'rotate(' + angle + 'deg)';
+  meteor.style.animationDuration = duration + 's';
+  meteor.style.setProperty('--tail', tailLen + 'px');
+
+  document.querySelector('.meteors').appendChild(meteor);
+
+  // 动画播完，清空自己
+  setTimeout(function () {
+    if (meteor.parentNode) meteor.parentNode.removeChild(meteor);
+  }, (duration + 0.3) * 1000);
+}
+</code></pre>
+<p><strong>为什么这么麻烦，不放一段视频？</strong></p>
+<p>因为视频几 MB 起步，学生在宿舍、在地铁打开，流量的消耗和加载的等待会吃掉第一秒的好感。而这段"随机美"，代价是 <strong>0 KB</strong>。</p>
+<p>更重要的是：<strong>因为参数随机，每一颗流星都不一样，你永远不会看到同一个画面。</strong> 这跟真实的星空一样——它是不重复的。我一直觉得，这才是代码的浪漫之处：<strong>用确定的规则，生成不确定的美。</strong></p>
+<h3>② 一个字母之差：vh 和 svh</h3>
+<p>这是一行看起来毫无意义的代码：</p>
+<pre><code class="language-css">.scene-opening {
+  min-height: 100vh;
+  min-height: 100svh;   /* 就多了这一个字母 */
+}
+</code></pre>
+<p><code>vh</code> 是"屏幕高度的百分之一"，<code>svh</code>（small viewport height）是"<strong>除去手机地址栏之后</strong>的高度"。</p>
+<p>手机浏览器有个老毛病：你刚打开页面时地址栏在，屏幕可看区域小；往下一滑地址栏收起，可视区域变大——如果用 <code>vh</code>，整页会<strong>突然跳一下</strong>，像被人推了一把。在微信内置浏览器里尤其明显。</p>
+<p>加一个 <code>s</code>，页面在打开的第一帧就是稳定高度，不再抽搐。</p>
+<p><strong>这行代码没人会注意到。但没人注意到，恰恰说明它做对了。</strong></p>
+<h3>③ 测试算分时，"打平了怎么办"</h3>
+<p>六道题，四个选项，分别对应四种人格。选得最多的那个获胜。</p>
+<p>但如果<strong>两种人格拿了同样的票</strong>怎么办？</p>
+<p>我的处理是：<strong>看最后一题。</strong></p>
+<p>最后一题是"想念对你来说，更像什么？"——一片星空？织不完的锦？一张车票？还是一座桥？</p>
+<p>这个问题最接近一个人对自己的判断，前面五题是"我平时怎么做"，最后一题是"我其实是谁"。</p>
+<pre><code class="language-javascript">var score = { zhinv: 0, niulang: 0, queqiao: 0, yinhe: 0 };
+state.answers.forEach(function (t) { score[t]++; });
+
+var lastAnswer = state.answers[state.answers.length - 1];
+
+var best = null;
+Object.keys(score).forEach(function (t) {
+  if (best === null || score[t] &gt; score[best]) { best = t; return; }
+  if (score[t] === score[best]) {
+    if (t === lastAnswer) { best = t; }   // 打平，听最后一题的
+  }
+});
+</code></pre>
+<p>写代码有时候像做人：<strong>规则解决不了的，就交给那个最接近本心的答案。</strong></p>
+<h3>④ 生成海报前，必须"等一等"</h3>
+<p>海报是用 Canvas（一块可以用代码画画的画布）现画的：1080×1440，铺银河底图，压一层渐变让字看得清，再写类型名、诗句、落款，最后导出成 PNG。</p>
+<p>这里有个巨坑：<strong>画之前必须等字体加载完。</strong></p>
+<pre><code class="language-javascript">// 告诉浏览器：这几个字，我现在就要用
+var loadFonts = [
+  document.fonts.load('400 150px &quot;LXGW WenKai&quot;', info.name),
+  document.fonts.load('400  52px &quot;LXGW WenKai&quot;', info.tag),
+  document.fonts.load('400  40px &quot;LXGW WenKai&quot;', '想起谁的时候，就抬头。')
+];
+
+Promise.all(loadFonts.concat([imgReady, document.fonts.ready]))
+  .then(function () {
+    // 字体和图片都到齐了，才动笔
+    // ... 画背景、画渐变压暗、写字、画那道银河弧线
+    callback(canvas);
+  });
+</code></pre>
+<p>如果不写这三行，浏览器会<strong>立刻</strong>开始画，而那时优雅的楷体还没送到——它会用系统默认字体凑合画完，于是诞生一张丑得没法看的海报，而且<strong>永远修不回来</strong>。</p>
+<p><strong>耐心不是美德，是必要条件。</strong></p>
+<p>顺带说另一个坑：这张银河图必须放在<strong>自己的域名下</strong>。如果贪方便去引用别人网站上的图，这块画布会被"污染"（浏览器安全策略），最后一步导出图片会直接失败、报错。<strong>想拿别人的图做你的东西，技术上是不允许的——这一点我很喜欢。</strong></p>
+<hr />
+<h2>六、踩坑实录（这部分最值钱）</h2>
+<p>一个上线只要三分钟的网页，前后踩了八个坑。我把它们全写下来，因为每一个"不对劲",最后都指向一个真实的原理。</p>
+<h3>坑 1｜Windows 上的字，丑得像假货</h3>
+<p><strong>现象</strong>：我在自己的电脑上看着挺好，发给朋友看，他说"这字体有点廉价"。</p>
+<p><strong>原因</strong>：我写的是 <code>宋体 → SimSun</code>。前两个只有苹果电脑有，所以所有 Windows 用户看到的都是"中易宋体"——一种为打印设计的字体，笔画细、有锯齿，放大当标题看，就是"廉价"的来源。</p>
+<p><strong>解法</strong>：换成<strong>霞鹜文楷（LXGW WenKai）</strong>，一款开源的、专为屏幕阅读设计的楷体。手写感、有温度，年轻人很吃。</p>
+<p>故事这才刚开始——见坑 2。</p>
+<h3>坑 2｜一本字典 20MB，谁也拉不动</h3>
+<p><strong>现象</strong>：换字体之后，字体文件完整的有 20 多 MB。不仅是慢的问题，连托管文件的 CDN 都直接拒绝提供（超过单文件 20MB 限制）。</p>
+<p><strong>解法</strong>：用"<strong>按需发货</strong>"。</p>
+<p>字体发布方把整本字典（近三万个汉字）按"字符 Unicode 区间"切成了 <strong>97 个小包</strong>。浏览器很聪明，它会看着你页面上出现了哪些字，只下载包含那些字的包。</p>
+<p>我写了个脚本干了三件事：</p>
+<ol>
+<li>把页面里所有会出现的中文字全抓出来（446 个）</li>
+<li>计算这 446 个字落在哪几个包里</li>
+<li>只把那几个包下载下来，放进项目里，顺手生成一份本地字体清单</li>
+</ol>
+<p><strong>结果：97 个包只用了 24 个，全部本地化，页面从此不依赖任何外部网络。</strong> 校园网照样秒开。</p>
+<blockquote>
+<p>打个比方：你要做一首诗，不需要买下整座图书馆，只需要买下用到的那 24 页。</p>
+</blockquote>
+<p>这个脚本留在了项目里（<code>assets/fonts/_extend_subset.py</code>），以后改文案，重跑一遍就自动补齐。<strong>把一次性的人工劳动，变成可重复的自动化</strong>——这是我做老师之后养成的一个习惯。</p>
+<h3>坑 3｜微信里点"保存海报"，毫无反应</h3>
+<p><strong>现象</strong>：学生做完测试，兴奋地点"保存海报"——什么都没发生。点第二次，还是没反应。<strong>传播链在这里断掉。</strong></p>
+<p><strong>原因</strong>：保存图片用的是 HTML 里的 <code>download</code> 属性。这是标准写法，但<strong>微信内置浏览器不支持</strong>，一刀切地忽略了它。</p>
+<p><strong>解法</strong>：检测当前是不是微信环境，如果是，就不硬碰硬，改成符合微信习惯的做法——</p>
+<pre><code class="language-javascript">var isWeChat = /MicroMessenger/i.test(navigator.userAgent || '');
+
+if (isWeChat) {
+  els.posterSave.textContent = '长按上方海报保存';   // 按钮变成提示
+  // 在图上加一行呼吸动画的小字：&quot;长按海报图片 → 保存到相册&quot;
+} else {
+  els.posterSave.textContent = '保存海报';          // 外部浏览器照常下载
+}
+</code></pre>
+<p><strong>教训</strong>：在产品里，<strong>"标准做法"不等于"用户的做法"</strong>。用户不在浏览器里，用户在微信里。你要去他们的地方，按他们的规矩来。</p>
+<h3>坑 4｜分享按钮点了，然后呢？</h3>
+<p>同样的病：分享用的是现代浏览器的 <code>navigator.share</code>，微信不支持。点了之后界面毫无反馈，用户不知道该干嘛。</p>
+<p><strong>解法</strong>：微信里改成两段引导——先自动复制链接，再提示一句"点右上角「···」→ 发送给朋友"。</p>
+<h3>坑 5｜朋友圈转发，没有图</h3>
+<p><strong>现象</strong>：链接发到朋友圈，光秃秃一行字，没有那张银河。</p>
+<p><strong>原因</strong>：我在代码里写的是相对路径 <code>assets/milky-way.jpg</code>。微信的抓取程序在外面看，它不知道这个相对路径该拼在哪个域名后面——<strong>它抓不到就是抓不到</strong>。</p>
+<p><strong>解法</strong>：改成完整的 HTTPS 绝对地址，顺手补上图片尺寸：</p>
+<pre><code class="language-html">&lt;meta property=&quot;og:image&quot; content=&quot;https://daka-agent.github.io/DoubleSeventhFestival/assets/milky-way.jpg&quot; /&gt;
+&lt;meta property=&quot;og:image:width&quot;  content=&quot;1440&quot; /&gt;
+&lt;meta property=&quot;og:image:height&quot; content=&quot;888&quot; /&gt;
+</code></pre>
+<p>改完那一刻我有点感慨：<strong>很多时候，"别人看不到你的好"，不是因为你不好，是因为你没把话说完整。</strong></p>
+<h3>坑 6｜"愿你今晚也抬头"，读起来有点怪</h3>
+<p>这条不是技术 bug，是我一个好朋友看完提的意见——但我认为是整个项目里最有价值的一条。</p>
+<p>七夕是 8 月 19 日，页面 8 月 21 日发出去。结语写着"愿你今晚也抬头"。</p>
+<p><strong>一个 8 月 21 日打开这条链接的人，会觉得莫名其妙。</strong></p>
+<p>我把页面里所有带"今晚"的句子过了一遍，做了区分：</p>
+<ul>
+<li>标题「今晚的银河很美」——<strong>描述句</strong>，定格在拍照那一晚，像给照片题字，<strong>可以留</strong></li>
+<li>"愿你今晚也抬头"——<strong>祈使句</strong>，是对"正在看的人"说话，过了那天就不成立，<strong>必须改</strong></li>
+</ul>
+<p>改成了——</p>
+<blockquote>
+<p><strong>想起谁的时候，就抬头。</strong></p>
+</blockquote>
+<p>任何时候打开都成立，而且跟前面"把想念攒到见面的那一天"形成了闭环。</p>
+<p><strong>一句话的时态，决定一个作品能活多久。</strong> 这是我这次学到最贵的一课。</p>
+<h3>坑 7｜"古"写成了"今"</h3>
+<p>一个很小但致命的错误：古今对照的第二组，左边明明是秦观《鹊桥仙》的原文，标签却写成了"今"。</p>
+<p>一个错别字，会让所有可信度归零。<strong>读者可能说不出哪里怪，但他会觉得"这东西不讲究"。</strong></p>
+<h3>坑 8｜推送崩溃：当工具本身坏了</h3>
+<p>最后要把代码同步到国内代码托管平台（AtomGit），推送全线失败。</p>
+<p>查了半天发现：这台电脑上的<strong>凭据管理器（负责自动填账号密码的程序）本身崩了</strong>，一调用就段错误。所有的 HTTPS 推送因此全部失败。</p>
+<p><strong>解法</strong>：绕过它，直接用一个更老、更简单、但也更可靠的组件读取系统里存的密码，一次通过，并把这套配置固化下来。以后推送只要：</p>
+<pre><code class="language-bash">git push              # 更新国外仓库
+git push atomgit main # 更新国内仓库
+</code></pre>
+<p><strong>一行不用多敲。</strong></p>
+<p>这个坑的启示我很喜欢：<strong>当你反复解决同一个问题时，不要继续修它的症状，去找坏掉的那个东西本身。</strong></p>
+<hr />
+<h2>七、写到这里，我想说的其实不是技术</h2>
+<p>我在大学里教书。备课、上课、答疑、改作业——说实话，这份日常里浪漫的成分不多。</p>
+<p>但这个项目让我重新理解了一件事：</p>
+<p><strong>传统节日不需要被保护，它需要被使用。</strong></p>
+<p>我们花了很多力气去"申遗"、去"保护"、去呼吁年轻人重视传统。可一个节日真正的生命力，从来不在文件里，在于——</p>
+<blockquote>
+<p>某个普通的夜晚，有人因为想起一句话，抬头看了一眼天。</p>
+</blockquote>
+<p>那天我在班上把这个链接发给学生们。没有配任何说明，就是那句话：</p>
+<blockquote>
+<p>"七夕那晚随手拍的一片银河，顺手做了个小页面。最后一页有个小测试，我测出来是织女型，你呢？"</p>
+</blockquote>
+<p>后来有学生回我：老师，我是银河型。</p>
+<p>我盯着那条消息看了很久。</p>
+<p><strong>一个人愿意告诉你"我的想念是什么型"，这本身就是一次小小的袒露。</strong> 而两个平时说不了三句话的人，因为一个小小的测试结果，开始聊起自己——这不就是传统节日本来该做的事吗？</p>
+<p><strong>让想念的人有话可聊，让不说话的人有一个开口的借口。</strong></p>
+<p>我想，所谓传承，大概就是这个样子吧：</p>
+<p>不是把古董锁进玻璃柜，<br />
+是把一千多年前的那份心情，<br />
+翻译成今天的人<strong>愿意转发</strong>的一句话。</p>
+<p>我一个每天上课的老师，却在七夕之后做了一片星空。<br />
+从一个角度看，这很不务正业；<br />
+从另一个角度看——<strong>这大概是我能给学生们上的，最好的一课。</strong></p>
+<p>代码全部开源在 GitHub 和 AtomGit，用的是最朴素的技术，没有框架，没有后台，没有数据库。谁想拿去改成中秋、改成除夕、改成任何一个你觉得被遗忘的日子，<strong>尽管拿去</strong>。</p>
+<p>如果你也想做一点点这样的小事，我的建议只有一条：</p>
+<p><strong>别从"我想讲什么"开始，从"他已经做了什么"开始。</strong></p>
+<p>他已经在拍照了，你只需要陪他看看那片银河。</p>
+<hr />
+<blockquote>
+<p>想起谁的时候，就抬头。</p>
+<p>—— 七月初七，给每一个想见的人</p>
+<p><strong>Designed by Daka</strong></p>
+</blockquote>
+<hr />
+<p><em>本文提到的所有代码均已开源 → github.com/daka-agent/DoubleSeventhFestival</em><br />
+<em>感谢霞鹜文楷（LXGW WenKai）开源字体，本项目以其 SIL OFL 1.1 协议合规使用。</em></p>
+</div>
+<script>
+var btn = document.getElementById('copybtn');
+btn.addEventListener('click', function () {
+  var art = document.getElementById('article');
+  var sel = window.getSelection();
+  var range = document.createRange();
+  range.selectNodeContents(art);
+  sel.removeAllRanges();
+  sel.addRange(range);
+  try {
+    document.execCommand('copy');
+    btn.textContent = '已复制正文 ✓';
+  } catch (e) {
+    btn.textContent = '请手动 Ctrl+A 复制';
+  }
+  setTimeout(function () { btn.textContent = '一键选中并复制正文'; }, 2200);
+});
+</script>
+</body>
+</html>

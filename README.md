@@ -82,4 +82,4 @@ python -m http.server 5500
 
 ---
 
-Design by Daka
+Designed by Daka
